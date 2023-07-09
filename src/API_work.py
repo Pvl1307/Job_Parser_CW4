@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod  # Для абстракции классов
 import requests  # Модуль для работы с HTTP-запросами.
 import os  # Модуль для работы с операционной системой. Для переменной окружения(апи-ключ)
+from src.working_with_vacancies import Vacancy  # Класс для работы с вакансиями
+from src.save_info_in_JSON_file import JSONSaver  # Класс для работы с JSON(добавление, получения, удаление)
 
 
 class API(ABC):
@@ -54,6 +56,24 @@ class HeadHunterAPI(API):
             if salary_to is None or salary_to == 0:
                 salary_to = salary_from
 
+            vac = Vacancy(vacancy_id, title, vacancy_url, company_name, work_area, salary_from, salary_to,
+                          salary_currency)
+
+            print('=====================================================================')
+
+            print(vac)
+
+            user_answer = input('Добавить вакансию? (да/нет) ').lower()
+            if user_answer in ['да', 'yes', 'lf', 'нуы']:
+                info_work = JSONSaver()
+                info_work.add_vacancy(vac.vacs)
+            elif user_answer in ['стоп', 'stop', 'cnjg', 'ыещз']:
+                break
+            else:
+                continue
+
+        print('=====================================================================')
+
 
 class SuperJobAPI(API):
     """Класс для работы с SuperJob API"""
@@ -95,3 +115,21 @@ class SuperJobAPI(API):
                 salary_from = salary_to
             if salary_to is None or salary_to == 0:
                 salary_to = salary_from
+
+            vac = Vacancy(vacancy_id, title, vacancy_url, company_name, work_area, salary_from, salary_to,
+                          salary_currency)
+
+            print('=====================================================================')
+
+            print(vac)
+
+            user_answer = input('Добавить вакансию? (да/нет) ').lower()
+            if user_answer in ['да', 'yes', 'lf', 'нуы']:
+                info_work = JSONSaver()
+                info_work.add_vacancy(vac.vacs)
+            elif user_answer in ['стоп', 'stop', 'cnjg', 'ыещз']:
+                break
+            else:
+                continue
+
+            print('=====================================================================')
