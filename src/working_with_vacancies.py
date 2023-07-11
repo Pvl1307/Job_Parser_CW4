@@ -2,7 +2,6 @@ class Vacancy:
 
     def __init__(self, vacancy_id: int, title: str, vacancy_url: str, company_name: str, work_area: str,
                  salary_from: int, salary_to: int, salary_currency: str) -> None:
-
         self.vacancy_id = vacancy_id  # ID вакансии
         self.title = title  # Название вакансии
         self.vacancy_url = vacancy_url  # Ссылка на вакансию
@@ -11,6 +10,11 @@ class Vacancy:
         self.salary_from = salary_from  # Зарплата от
         self.salary_to = salary_to  # Зарплата до
         self.salary_currency = salary_currency  # Валюта зарплаты
+
+        self.vac_info = dict(vacancy_id=self.vacancy_id, title=self.title, vacancy_url=vacancy_url,
+                             company_name=self.company_name, work_area=self.work_area,
+                             salary_from=self.salary_from, salary_to=self.salary_to,
+                             salary_currency=self.salary_currency)
 
     def _validate_salary(self):
         """Проверяет, является ли значение переменной salary_from целым числом и больше или равным нулю."""
