@@ -66,7 +66,7 @@ class HeadHunterAPI(API):
             user_answer = input('Добавить вакансию? (да/нет) ').lower()
             if user_answer in ['да', 'yes', 'lf', 'нуы']:
                 info_work = JSONSaver()
-                info_work.add_vacancy(vac.vacs)
+                info_work.add_vacancy(vac.vac_info)
             elif user_answer in ['стоп', 'stop', 'cnjg', 'ыещз']:
                 break
             else:
@@ -126,7 +126,7 @@ class SuperJobAPI(API):
             user_answer = input('Добавить вакансию? (да/нет) ').lower()
             if user_answer in ['да', 'yes', 'lf', 'нуы']:
                 info_work = JSONSaver()
-                info_work.add_vacancy(vac.vacs)
+                info_work.add_vacancy(vac.vac_info)
             elif user_answer in ['стоп', 'stop', 'cnjg', 'ыещз']:
                 break
             else:
